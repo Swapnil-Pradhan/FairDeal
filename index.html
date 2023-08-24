@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title id="t">Page title</title>
+<link rel="stylesheet" href="style.css"/>
+<meta name="viewport" content="user-scalable=no"/>
+</head>
+<body bgcolor="#101010" onload="document.getElementsByTagName('body')[0].style.display='block'">
+
+<nav id="op">
+<span onclick="op()">&#9776</span>
+<select id="locs" onchange="chng(this)">
+<optgroup label="Your City">
+<option id="now"></option>
+</optgroup>
+<optgroup label="Other Cities" id="other"></optgroup>
+</select>
+</nav>
+
+<section>
+<div id="fruit" onclick="main(this.id);">
+<span onclick="band('9%', '2%', 'rgb(227, 128, 255)', 'fruit')">&times;</span>
+<center><sub>🍉</sub><b>Fruits</b></center><div></div></div>
+<div id="veg" onclick="main(this.id);">
+<span onclick="band('9%', '52%', 'rgb(174, 195, 0)', 'veg')">&times;</span>
+<center><sub>🥗</sub><b>Veggies</b></center><div></div></div>
+<div id="grain" onclick="main(this.id);">
+<span onclick="band('55%', '2%', '#ff9d00', 'grain')">&times;</span>
+<center><sub>🌾</sub><b>Grains</b></center><div></div></div>
+<div id="milk" onclick="main(this.id);">
+<span onclick="band('55%', '52%', 'rgb(255, 115, 0)', 'milk')">&times;</span>
+<center><sub>🎣</sub><b id="an">Animal Products</b></center><div></div></div>
+</section>
+<div id="blr" onclick="cls()"></div>
+
+<div id="sid">
+<span id="dp"><input type="file" onchange="dp()" id="file" name="Files[]" accept="image/*">
+<img src="" id="pf"></span>
+<i id="mail"></i>
+<p id="greet">
+<sub id="wish">Good </sub><br><b id="dis"></b>
+</p>
+<div id="info">
+<p><b>Points: </b><span id="scr"></span></p>
+<p><b><i onclick="upem()">✎ </i> E-mail: </b><span id="bmail"></span></p>
+<p><b><i onclick="upnm()">✎ </i> Name: </b><span id="nam"></span></p>
+<center><span id="cpass" class="ripple" onclick="setTimeout(()=>{chngpass()},700)">Change Password</span></center>
+<center><span id="logout" class="ripple" onclick="setTimeout(()=>{sinout()},700)">Logout</span></center>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<center><span id="duser" class="ripple" onclick="setTimeout(()=>{duser()},700)">&#9249; Delete User</span></center>
+<center><span class="ripple" onclick="android.exit()">📤 Exit</span></center>
+</div>
+</div>
+
+<div id="sign">
+<fieldset onclick="sin('login', 'regis')" id="login">
+<h1 id="f">Login</h1><legend id="s">Login</legend>
+<form id="login" autocomplete="on" onsubmit="signin(this); return false;">
+<input type="email" id="fir" placeholder="E-mail" onfocus="ud(this)" name="email" required>
+<br>
+<input type="password" id="Lpass" placeholder="Password" onfocus="ud(this)" name="password"required>
+<br>
+<div><input type="submit" value="Sign in"><input type="reset" value="Clear"></div>
+</form>
+</fieldset>
+
+<fieldset onclick="sin('regis', 'login')" id="regis">
+<h1 id="f">Register</h1><legend id="s">Register</legend>
+<form id="signUp" onsubmit="register(this); return false;" autocomplete="on">
+<input type="text" id="fir" onfocus="ud(this)" placeholder="Name" required name="name">
+<br>
+<input type="email" id="email" onfocus="ud(this)" placeholder="E-mail" name="email" required>
+<br>
+<input type="password" id="pass" onfocus="ud(this)" placeholder="Password" required name="password">
+<br>
+<input type="password" id="conpass" onfocus="ud(this)" placeholder="Confirm password" required name="cpass"><br>
+<div><input type="submit" value="Sign up"><input type="reset" value="Clear"></div>
+</form>
+</fieldset>
+</div>
+<input type="email" id="faltu" style="opacity:0">
+<script src="Firebase8.js"></script>
+<script src="jQuery.js"></script>
+<script src="Fire.js"></script>
+</body>
+</html>
