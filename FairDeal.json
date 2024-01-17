@@ -1,0 +1,39 @@
+{
+    "name": "FairDeal - Deal Ki Guarantee, Price Mein Clarity!",
+    "short_name": "FairDeal",
+    "description": "",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3498db",
+    "orientation": "portrait",
+    "lang": "en-IN",
+    "icons": [
+      {
+        "src": "/FairDeal.svg",
+        "sizes": "800x800",
+        "type": "image/svg"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/ss1.png",
+        "sizes": "1470x2613",
+        "type": "image/png"
+      },
+      {
+        "src": "/ss2.png",
+        "sizes": "1470x2613",
+        "type": "image/png"
+      }
+    ],
+    "categories": ["shopping", "business"],
+    "prefer_related_applications": false,
+    "scope": "/",
+    "serviceworker": {
+      "src": "sw.js",
+      "scope": "/",
+      "use_cache": true
+    },
+    "permissions": ["internet"]
+  }
