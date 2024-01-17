@@ -12,8 +12,8 @@
   ],
   "icons": [
     {
-      "src": "FairDeal.svg",
-      "type": "image/svg",
+      "src": "FairDeal.png",
+      "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
     }
