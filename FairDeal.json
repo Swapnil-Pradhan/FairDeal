@@ -1,39 +1,33 @@
 {
-    "name": "FairDeal - Deal Ki Guarantee, Price Mein Clarity!",
-    "short_name": "FairDeal",
-    "description": "",
-    "start_url": "/",
-    "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#3498db",
-    "orientation": "portrait",
-    "lang": "en-IN",
-    "icons": [
-      {
-        "src": "/FairDeal.svg",
-        "sizes": "800x800",
-        "type": "image/svg"
-      }
-    ],
-    "screenshots": [
-      {
-        "src": "/ss1.png",
-        "sizes": "1470x2613",
-        "type": "image/png"
-      },
-      {
-        "src": "/ss2.png",
-        "sizes": "1470x2613",
-        "type": "image/png"
-      }
-    ],
-    "categories": ["shopping", "business"],
-    "prefer_related_applications": false,
-    "scope": "/",
-    "serviceworker": {
-      "src": "sw.js",
-      "scope": "/",
-      "use_cache": true
+  "background_color": "#292b31",
+  "description": "The app tells the prices of everyday goods like fruits, vegetables, grains; and the prices of various products manufactured by local start-ups that do not have MRP written on them.",
+  "display": "standalone",
+  "name": "FairDeal - Deal Ki Guarantee, Price Mein Clarity!",
+  "orientation": "portrait",
+  "short_name": "FairDeal",
+  "start_url": "index.html",
+  "theme_color": "#292b31",
+  "categories": [
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "FairDeal.svg",
+      "type": "image/svg",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "ss1.png",
+      "sizes": "1470x2613",
+      "type": "image/png"
     },
-    "permissions": ["internet"]
-  }
+    {
+      "src": "ss2.png",
+      "sizes": "1470x2613",
+      "type": "image/png"
+    }
+  ]
+}
