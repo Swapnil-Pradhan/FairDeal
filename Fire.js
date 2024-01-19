@@ -1,12 +1,12 @@
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => {
-        console.log('Service Worker registered with scope:', reg.scope);
-      })
-      .catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-}
+// if ('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('sw.js')
+//       .then(reg => {
+//         console.log('Service Worker registered with scope:', reg.scope);
+//       })
+//       .catch(error => {
+//         console.error('Service Worker registration failed:', error);
+//       });
+// }
 
 const firebaseConfig = {
     apiKey: "AIzaSyD0GGbyemoB3geMGxGR_cLSi9pudyPO1MM",
@@ -121,7 +121,7 @@ function ud(dis) {
     dis.style.borderBottom = "7px solid #ffb200";
 }
 
-function main(aid) {
+function main(aid, x) {
     const sec = document.querySelector("section"), elm = document.getElementById(aid),
         ap = document.querySelector("#" + aid + ">div");
     if (document.querySelector("#" + aid + ">div").innerHTML == "") {
@@ -156,12 +156,21 @@ function main(aid) {
             const l = f.val(), fal = Object.keys(l);
             for (var i in l) {
                 const hel = document.createElement("span"), v = Math.round(l[i]["i"].reduce((a, b) => a + b) / (l[i]["i"].length - 1));
-                hel.innerHTML = "<span>" + i + "</span><span>≈</span><span>₹" + v + " <i id='" + i + "' onclick='plus(this.id, `" + t + "`, `" + v + "`)'>✎</i></span>";
+                hel.innerHTML = "<span>" + i + "</span><span>≈</span><span>" + `${isNaN(v) ? "No data" : "₹" + v}` + " <i id='" + i + "' onclick='plus(this.id, `" + t + "`, `" + v + "`)'>✎</i></span>";
                 ap.appendChild(hel);
                 ap.style.display = "block";
                 setTimeout(() => {
                     ap.style.opacity = "1";
-                }, 999);
+                }, 1);
+            }
+            if (x) {
+                console.log(JSON.stringify(x));
+                const y = document.getElementById(x), z = (y.parentNode).parentNode;
+                y.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                z.style.animation = "search .7s infinite alternate";
             }
         });
         document.querySelector("section>#" + aid + ">span").style.display = "flex";
