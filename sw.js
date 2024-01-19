@@ -1,4 +1,4 @@
-const cacheVersion = 'v1';
+const cacheVersion = 'v1.1';
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
@@ -11,6 +11,7 @@ self.addEventListener('install', (e) => {
         "index.html",
         "jQuery.js",
         "nodp.svg",
+        "Log.js",
         "Product.ttf"
       ]);
     })
