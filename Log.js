@@ -333,7 +333,8 @@ function duser() {
     }
 }
 
-document.getElementById("sp2").addEventListener("submit", () => {
+document.getElementById("sp2").addEventListener("submit", e=>{
+    e.preventDefault();
     const x = (document.getElementById("srch").value).replace(/\b\w/g, (letter) => letter.toUpperCase())
     if (Veggies[x]) {
         main("veg", x);
