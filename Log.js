@@ -326,7 +326,6 @@ function duser() {
         storage.child(id).delete();
         auth.currentUser.delete().then(() => {
             alert("User deleted.");
-
         }).catch(err => {
             alert(err.message);
         });

@@ -1,0 +1,68 @@
+{
+    "name": "FairDeal - ",
+    "short_name": "FairDeal",
+    "description": "",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3498db",
+    "orientation": "portrait",
+    "lang": "en-US",
+    "icons": [
+      {
+        "src": "/icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "/screenshot1.png",
+        "sizes": "1080x1920",
+        "type": "image/png"
+      },
+      {
+        "src": "/screenshot2.png",
+        "sizes": "1080x1920",
+        "type": "image/png"
+      }
+    ],
+    "categories": ["shopping", "business"],
+    "prefer_related_applications": false,
+    "related_applications": [],
+    "scope": "/",
+    "serviceworker": {
+      "src": "/service-worker.js",
+      "scope": "/",
+      "use_cache": true
+    },
+    "permissions": ["internet"],
+    "shortcuts": [
+      {
+        "name": "Special Deals",
+        "short_name": "Deals",
+        "description": "Access special deals directly.",
+        "url": "/special-deals",
+        "icons": [
+          {
+            "src": "/shortcut-deals.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          }
+        ]
+      },
+      {
+        "name": "My Account",
+        "short_name": "Account",
+        "description": "Go to your account settings.",
+        "url": "/my-account",
+        "icons": [
+          {
+            "src": "/shortcut-account.png",
+            "sizes": "192x192",
+            "type": "image/png"
+          }
+        ]
+      }
+    ]
+  }
