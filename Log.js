@@ -50,7 +50,7 @@ function add() {
         }).then(() => {
             alert("Sorry, " + loc + " is currently unavailable. It'll be added soon");
         });
-    } else{
+    } else {
         alert("Some security service is stopping us from detecting your location automatically");
     }
 }
@@ -332,7 +332,7 @@ function duser() {
     }
 }
 
-document.getElementById("sp2").addEventListener("submit", e=>{
+function sSubmit() {
     e.preventDefault();
     const x = (document.getElementById("srch").value).replace(/\b\w/g, (letter) => letter.toUpperCase())
     if (Veggies[x]) {
@@ -343,7 +343,7 @@ document.getElementById("sp2").addEventListener("submit", e=>{
         main("milk", x);
     } else if (Grains[x]) {
         main("grain", x);
-    } else{
+    } else {
         alert(`${x} is not added yet 🫤`);
     }
-});
+}
