@@ -332,7 +332,10 @@ function duser() {
     }
 }
 
+document.querySelector("#sp2").addEventListener("submit", sSubmit);
+
 function sSubmit() {
+    console.log("sSubmit run hua");
     const x = (document.getElementById("srch").value).replace(/\b\w/g, (letter) => letter.toUpperCase())
     if (Veggies[x]) {
         main("veg", x);
