@@ -14,7 +14,6 @@ $(document).ready(function () {
 var loc, fruit, veg, dairy, grain, id;
 $.get("https://ipinfo.io/json?token=40c851c1d853c3", function (data) {
     loc = data.city;
-    console.log(loc)
     now.innerHTML = loc;
     now.value = loc;
 }).then(() => {
@@ -184,7 +183,7 @@ document.querySelectorAll("section>div>div").forEach(k => {
 function band(t, l, b, bid) {
     const elm = document.getElementById(bid), ap = document.querySelector("section>#" + bid + ">div");
     setTimeout(() => {
-        elm.style.height = "39%";
+        elm.style.height = "42%";
         elm.style.width = "44%";
     }, 0)
     setTimeout(() => {
@@ -326,6 +325,7 @@ function duser() {
         storage.child(id).delete();
         auth.currentUser.delete().then(() => {
             alert("User deleted.");
+           
         }).catch(err => {
             alert(err.message);
         });

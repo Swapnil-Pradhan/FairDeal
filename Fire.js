@@ -1,12 +1,12 @@
-// if ('serviceWorker' in navigator) {
-//     navigator.serviceWorker.register('sw.js')
-//       .then(reg => {
-//         console.log('Service Worker registered with scope:', reg.scope);
-//       })
-//       .catch(error => {
-//         console.error('Service Worker registration failed:', error);
-//       });
-// }
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => {
+        console.log('Service Worker registered with scope:', reg.scope);
+      })
+      .catch(error => {
+        console.error('Service Worker registration failed:', error);
+      });
+}
 
 const firebaseConfig = {
     apiKey: "AIzaSyD0GGbyemoB3geMGxGR_cLSi9pudyPO1MM",
