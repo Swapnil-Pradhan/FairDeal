@@ -183,7 +183,7 @@ document.querySelectorAll("section>div>div").forEach(k => {
 function band(t, l, b, bid) {
     const elm = document.getElementById(bid), ap = document.querySelector("section>#" + bid + ">div");
     setTimeout(() => {
-        elm.style.height = "42%";
+        elm.style.height = "39%";
         elm.style.width = "44%";
     }, 0)
     setTimeout(() => {
