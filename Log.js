@@ -141,7 +141,8 @@ function plus(j, q, r) {
                     firestore.collection(id).doc("point").set({
                         score: scr.innerHTML - (-10)
                     }).then(() => {
-                        alert("You earned some points!");
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
                         scr.innerHTML = scr.innerHTML - (-10);
                     });
                 });
@@ -153,7 +154,8 @@ function plus(j, q, r) {
                     firestore.collection(id).doc("point").set({
                         score: scr.innerHTML - (-10)
                     }).then(() => {
-                        alert("You earned some points!");
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
                         scr.innerHTML = scr.innerHTML - (-10);
                     });
                 });
@@ -165,7 +167,8 @@ function plus(j, q, r) {
                     firestore.collection(id).doc("point").set({
                         score: scr.innerHTML - (-10)
                     }).then(() => {
-                        alert("You earned some points!");
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
                         scr.innerHTML = scr.innerHTML - (-10);
                     });
                 });
