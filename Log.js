@@ -10,7 +10,6 @@ $(document).ready(function () {
     });
 });
 
-
 var loc, fruit, veg, dairy, grain, id;
 $.get("https://ipinfo.io/json?token=40c851c1d853c3", function (data) {
     loc = data.city;
@@ -55,6 +54,7 @@ function add() {
 }
 
 firebase.database().ref().once("value").then((city) => {
+    console.log(city)
     const cities = Object.keys(city.val());
     if (cities.includes(loc) === false) {
         add();
@@ -129,55 +129,26 @@ function dp() {
 }
 
 function plus(j, q, r) {
-    firebase.database().ref(loc + "/" + q + "/" + j + "/i").once("value").then((f) => {
-        const i = f.val();
-        var inp = parseInt(prompt("Enter price", "Price"));
-        if (inp != null && inp != "" && inp < 999 && inp > 9) {
-            if (inp >= r && inp - r < 50 && r != null) {
-                i.push(inp);
-                firebase.database().ref(loc + "/" + q + "/" + j).set({
-                    i
-                }).then(() => {
-                    firestore.collection(id).doc("point").set({
-                        score: scr.innerHTML - (-10)
-                    }).then(() => {
-                        alert(`Thank you for contributing for the society
-You earned some points 🥳`);
-                        scr.innerHTML = scr.innerHTML - (-10);
-                    });
+    const ref = firebase.database().ref(`${loc}/${q}/${j}/i`);
+
+    ref.once("value").then((snapshot) => {
+        const i = snapshot.val();
+        const inp = parseInt(prompt("Enter price", "Price"));
+
+        if (inp !== null && inp !== "" && inp < 999 && inp > 9 && (!r || (inp >= r && inp - r < 50) || (inp < r && r - inp < 50))) {
+            i.push(inp);
+            firebase.database().ref(`${loc}/${q}/${j}`).set({ i }).then(() => {
+                firestore.collection(id).doc("point").set({ score: scr.innerHTML - (-10) }).then(() => {
+                    alert("Thank you for contributing for the society\nYou earned some points 🥳");
+                    scr.innerHTML = scr.innerHTML - (-10);
                 });
-            } else if (inp < r && r - inp < 50 && r != null) {
-                i.push(inp);
-                firebase.database().ref(loc + "/" + q + "/" + j).set({
-                    i
-                }).then(() => {
-                    firestore.collection(id).doc("point").set({
-                        score: scr.innerHTML - (-10)
-                    }).then(() => {
-                        alert(`Thank you for contributing for the society
-You earned some points 🥳`);
-                        scr.innerHTML = scr.innerHTML - (-10);
-                    });
-                });
-            } else if (isNaN(r)) {
-                i.push(inp);
-                firebase.database().ref(loc + "/" + q + "/" + j).set({
-                    i
-                }).then(() => {
-                    firestore.collection(id).doc("point").set({
-                        score: scr.innerHTML - (-10)
-                    }).then(() => {
-                        alert(`Thank you for contributing for the society
-You earned some points 🥳`);
-                        scr.innerHTML = scr.innerHTML - (-10);
-                    });
-                });
-            } else {
-                alert("😑");
-            }
+            });
+        } else {
+            alert(`Please enter only numeric values :(`);
         }
     });
 }
+
 
 document.querySelectorAll("section>div>div").forEach(k => {
     k.style.height = "42%";
@@ -244,7 +215,6 @@ const Veggies = {
     "Cabbage": { "i": [0] },
     "Coriander": { "i": [0] },
     "Spinach": { "i": [0] },
-    "Snake Gourd": { "i": [0] },
     "Fenugreek": { "i": [0] }
 },
 
@@ -258,22 +228,66 @@ const Veggies = {
         "Melon": { "i": [0] },
         "Peach": { "i": [0] },
         "Kiwi": { "i": [0] },
-        "Strawberry": { "i": [0] }
+        "Strawberry": { "i": [0] },
+        "Orange": { "i": [0] },
+        "Guava": { "i": [0] },
+        "Papaya": { "i": [0] },
+        "Grapes": { "i": [0] },
+        "Pineapple": { "i": [0] },
+        "Lychee": { "i": [0] },
+        "Fig": { "i": [0] },
+        "Dragon Fruit": { "i": [0] },
+        "Sapota (Chikoo)": { "i": [0] },
+        "Jackfruit": { "i": [0] },
+        "Apricot": { "i": [0] },
+        "Gooseberry (Amla)": { "i": [0] },
+        "Cranberry": { "i": [0] },
+        "Raspberry": { "i": [0] },
+        "Blackberry": { "i": [0] },
+        "Avocado": { "i": [0] }
     },
 
     Dairy = {
         "Paneer": { "i": [0] },
         "Butter": { "i": [0] },
         "Milk": { "i": [0] },
-        "Curd": { "i": [0] }
+        "Curd": { "i": [0] },
+        "Cheese": { "i": [0] },
+        "Yogurt": { "i": [0] },
+        "Ghee": { "i": [0] },
+        "Cream": { "i": [0] },
+        "Condensed Milk": { "i": [0] },
+        "Cottage Cheese (Khoya)": { "i": [0] },
+        "Buttermilk": { "i": [0] }
     },
 
     Grains = {
         "Rice": { "i": [0] },
         "Cereals": { "i": [0] },
         "Pulse": { "i": [0] },
-        "Saffron": { "i": [0] }
-    };
+        "Saffron": { "i": [0] },
+        "Wheat": { "i": [0] },
+        "Barley": { "i": [0] },
+        "Oats": { "i": [0] },
+        "Ragi": { "i": [0] },
+        "Bajra": { "i": [0] },
+        "Jowar": { "i": [0] },
+        "Maize (Corn)": { "i": [0] },
+        "Quinoa": { "i": [0] },
+        "Amaranth": { "i": [0] },
+        "Sesame Seeds (Til)": { "i": [0] },
+        "Flaxseeds (Alsi)": { "i": [0] },
+        "Chia Seeds": { "i": [0] },
+        "Mustard Seeds": { "i": [0] },
+        "Sunflower Seeds": { "i": [0] },
+        "Millet (Foxtail)": { "i": [0] },
+        "Green Gram (Moong Dal)": { "i": [0] },
+        "Black Gram (Urad Dal)": { "i": [0] },
+        "Chickpeas (Chana)": { "i": [0] },
+        "Masoor Dal": { "i": [0] },
+        "Toor Dal": { "i": [0] },
+        "Moong Dal": { "i": [0] }
+      };
 
 function op() {
     blr.style.display = "block";
@@ -328,7 +342,7 @@ function duser() {
         storage.child(id).delete();
         auth.currentUser.delete().then(() => {
             alert("User deleted.");
-           
+
         }).catch(err => {
             alert(err.message);
         });
