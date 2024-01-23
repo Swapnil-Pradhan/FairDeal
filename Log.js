@@ -129,22 +129,54 @@ function dp() {
 }
 
 function plus(j, q, r) {
-    const ref = firebase.database().ref(`${loc}/${q}/${j}/i`);
-
-    ref.once("value").then((snapshot) => {
-        const i = snapshot.val();
-        const inp = parseInt(prompt("Enter price", "Price"));
-
-        if (inp !== null && inp !== "" && inp < 999 && inp > 9 && (!r || (inp >= r && inp - r < 50) || (inp < r && r - inp < 50))) {
-            i.push(inp);
-            firebase.database().ref(`${loc}/${q}/${j}`).set({ i }).then(() => {
-                firestore.collection(id).doc("point").set({ score: scr.innerHTML - (-10) }).then(() => {
-                    alert("Thank you for contributing for the society\nYou earned some points 🥳");
-                    scr.innerHTML = scr.innerHTML - (-10);
+    firebase.database().ref(loc + "/" + q + "/" + j + "/i").once("value").then((f) => {
+        const i = f.val();
+        var inp = parseInt(prompt("Enter price", "Price"));
+        if (inp != null && inp != "" && inp < 999 && inp > 9) {
+            if (inp >= r && inp - r < 50 && r != null) {
+                i.push(inp);
+                firebase.database().ref(loc + "/" + q + "/" + j).set({
+                    i
+                }).then(() => {
+                    firestore.collection(id).doc("point").set({
+                        score: scr.innerHTML - (-10)
+                    }).then(() => {
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
+                        scr.innerHTML = scr.innerHTML - (-10);
+                    });
                 });
-            });
-        } else {
-            alert(`Please enter only numeric values :(`);
+            } else if (inp < r && r - inp < 50 && r != null) {
+                i.push(inp);
+                firebase.database().ref(loc + "/" + q + "/" + j).set({
+                    i
+                }).then(() => {
+                    firestore.collection(id).doc("point").set({
+                        score: scr.innerHTML - (-10)
+                    }).then(() => {
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
+                        scr.innerHTML = scr.innerHTML - (-10);
+                    });
+                });
+            } else if (isNaN(r)) {
+                i.push(inp);
+                firebase.database().ref(loc + "/" + q + "/" + j).set({
+                    i
+                }).then(() => {
+                    firestore.collection(id).doc("point").set({
+                        score: scr.innerHTML - (-10)
+                    }).then(() => {
+                        alert(`Thank you for contributing for the society
+You earned some points 🥳`);
+                        scr.innerHTML = scr.innerHTML - (-10);
+                    });
+                });
+            } else {
+                alert("😑");
+            }
+        } else{
+            alert("Please enter a genuine numeric value.");
         }
     });
 }
