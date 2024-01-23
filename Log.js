@@ -176,7 +176,7 @@ You earned some points 🥳`);
                 alert("😑");
             }
         } else{
-            alert("Please enter a genuine numeric value.");
+            alert("Please enter a genuine numeric value :(");
         }
     });
 }
