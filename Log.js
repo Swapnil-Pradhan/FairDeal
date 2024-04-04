@@ -279,16 +279,7 @@ const Veggies = {
     },
 
     Dairy = {
-        "Paneer": { "i": [0] },
-        "Butter": { "i": [0] },
-        "Milk": { "i": [0] },
-        "Curd": { "i": [0] },
-        "Cheese": { "i": [0] },
-        "Yogurt": { "i": [0] },
-        "Ghee": { "i": [0] },
-        "Cream": { "i": [0] },
-        "Cottage Cheese": { "i": [0] },
-        "Buttermilk": { "i": [0] }
+        "Rassogulla": { "i": [0] }
     },
 
     Grains = {
